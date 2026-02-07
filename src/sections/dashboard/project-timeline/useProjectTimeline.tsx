@@ -1,47 +1,58 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { projectTimelineData } from "@/mock/dashboard.mock";
+import { useState, useMemo } from "react";
+import { projectTimelineData, timelineYears } from "@/mock/dashboard.mock";
 
-type TimelineItem = (typeof projectTimelineData)[number];
+export interface TimelineEvent {
+  id: string;
+  date: string;
+  label: string;
+  status: "completed" | "current" | "upcoming";
+}
 
 export function useProjectTimeline() {
-  const years = useMemo(
-    () =>
-      Array.from(new Set(projectTimelineData.map((item) => item.year))).sort(
-        (a, b) => a - b
-      ),
-    []
+  const currentYear = new Date().getFullYear();
+  const [selectedYear, setSelectedYear] = useState(
+    timelineYears.includes(currentYear as (typeof timelineYears)[number])
+      ? currentYear
+      : timelineYears[0]
   );
 
-  const [selectedYear, setSelectedYear] = useState<number>(
-    years[0] ?? new Date().getFullYear()
-  );
-
-  const items = useMemo(
+  const events = useMemo(
     () =>
-      projectTimelineData.filter((item) => item.year === selectedYear),
+      projectTimelineData
+        .filter((e) => e.year === selectedYear)
+        .sort((a, b) => a.id - b.id)
+        .map((e) => ({
+          id: String(e.id),
+          date: e.dateLabel,
+          label: e.phase,
+          status: e.status,
+        })),
     [selectedYear]
   );
 
-  const completedCount = useMemo(
-    () => items.filter((item) => item.status === "completed").length,
-    [items]
-  );
+  const progressPercent = useMemo(() => {
+    if (events.length === 0) return 0;
+    const completedCount = events.filter(
+      (e) => e.status === "completed" || e.status === "current"
+    ).length;
+    return (completedCount / events.length) * 100;
+  }, [events]);
 
-  const progressPercentage = useMemo(() => {
-    if (items.length <= 1) return 100;
-    if (completedCount === 0) return 0;
-    // Green bar extends to last completed marker (first 2 white dots)
-    return (completedCount / (items.length - 1)) * 100;
-  }, [items.length, completedCount]);
+  const getDotLeft = (index: number) =>
+    events.length <= 1 ? 0 : (index / (events.length - 1)) * 100;
+
+  const isCompletedOrCurrent = (status: string) =>
+    status === "completed" || status === "current";
 
   return {
-    years,
+    timelineYears,
     selectedYear,
     setSelectedYear,
-    items,
-    progressPercentage,
+    events,
+    progressPercent,
+    getDotLeft,
+    isCompletedOrCurrent,
   };
 }
-

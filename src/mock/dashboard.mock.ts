@@ -112,4 +112,29 @@ export const projectTimelineData = [
     dateLabel: "Jul–Aug",
     status: "current" as const,
   },
+
+  // 2027 (for year filter demo)
+  {
+    id: 10,
+    year: 2027,
+    phase: "Planning",
+    dateLabel: "Jan 15",
+    status: "upcoming" as const,
+  },
+  {
+    id: 11,
+    year: 2027,
+    phase: "Kickoff",
+    dateLabel: "Feb 20",
+    status: "upcoming" as const,
+  },
+  {
+    id: 12,
+    year: 2027,
+    phase: "Execution",
+    dateLabel: "Mar–Sep",
+    status: "upcoming" as const,
+  },
 ];
+
+export const timelineYears = [2025, 2026, 2027] as const;

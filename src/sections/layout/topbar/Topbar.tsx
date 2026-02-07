@@ -42,23 +42,23 @@ export default function Topbar() {
           <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-[#F04438]" />
         </button>
 
-        <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
-          <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-white text-sm font-medium">
-            M
+        <button
+          type="button"
+          className="flex items-center gap-2 pl-2 border-l border-slate-200"
+          aria-label="User menu"
+        >
+          <div className="flex items-center gap-2.5 py-2 px-3 rounded-[12px] bg-[#F5F8FA] hover:bg-[#E8EDF2] transition-colors">
+            <img
+              src="https://i.pravatar.cc/150?u=mo"
+              alt="Mohamed"
+              className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+            />
+            <span className="text-sm font-medium text-[#1D3557]">Mohamed</span>
+            <svg className="w-4 h-4 text-[#8597A8] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-medium text-slate-900">Mohamed</span>
-            <button
-              type="button"
-              className="flex items-center"
-              aria-label="User menu"
-            >
-              <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-          </div>
-        </div>
+        </button>
       </div>
     </header>
   );

@@ -1,39 +1,26 @@
-import { TrackingTable, TrackingSummary } from "@/sections/tracking";
+import { TrackingTable, TrackingSummary, StatusOverviewSidePanel } from "@/sections/tracking";
 
 export default function TrackingPage() {
   return (
     <div className="space-y-6">
+      {/* Section: Header */}
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Tracking</h1>
-        <p className="text-sm text-slate-500 mt-1">
+        <h1 className="text-2xl font-bold text-[#1D3557]">Tracking</h1>
+        <p className="text-sm text-[#8597A8] mt-1">
           Monitor document status and compliance tracking
         </p>
       </div>
 
+      {/* Section: Summary statistics */}
       <TrackingSummary />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
+      {/* Sectioned layout: Data table + Side panel */}
+      <div className="grid grid-cols-12 gap-6">
+        <div className="col-span-12 sm:col-span-12 lg:col-span-8">
           <TrackingTable />
         </div>
-        <aside className="space-y-4">
-          <div className="bg-white p-5 rounded-xl border shadow-sm">
-            <h3 className="font-semibold text-slate-900 mb-3">Status Overview</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-slate-600">Approved</span>
-                <span className="font-medium text-green-600">1</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-600">Pending Review</span>
-                <span className="font-medium text-amber-600">2</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-600">In Progress</span>
-                <span className="font-medium text-slate-600">1</span>
-              </div>
-            </div>
-          </div>
+        <aside className="col-span-12 sm:col-span-12 lg:col-span-4">
+          <StatusOverviewSidePanel />
         </aside>
       </div>
     </div>

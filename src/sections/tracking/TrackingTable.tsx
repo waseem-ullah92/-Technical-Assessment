@@ -5,12 +5,12 @@ import {
   getCoreRowModel,
   getSortedRowModel,
   getPaginationRowModel,
-  flexRender,
   createColumnHelper,
   type SortingState,
 } from "@tanstack/react-table";
 import { useState } from "react";
 import { CustomTable } from "@/shared/ui/table";
+import { Card } from "@/shared/ui/card";
 import { trackingRows } from "@/mock/tracking.mock";
 import { cn } from "@/shared/lib/cn";
 
@@ -21,7 +21,11 @@ const columnHelper = createColumnHelper<TrackingRow>();
 const columns = [
   columnHelper.accessor("document", {
     header: "Document",
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span className="text-[#1D3557] hover:text-[#4CAF50] hover:underline cursor-pointer transition-colors">
+        {info.getValue()}
+      </span>
+    ),
   }),
   columnHelper.accessor("status", {
     header: "Status",
@@ -30,12 +34,14 @@ const columns = [
       return (
         <span
           className={cn(
-            "inline-flex px-2.5 py-1 text-xs font-medium rounded-full",
+            "inline-flex px-3 py-1.5 text-xs font-medium rounded-full justify-center",
             status === "Approved"
-              ? "bg-green-100 text-green-700"
+              ? "bg-green-500 text-white"
               : status === "Pending Review"
-              ? "bg-amber-100 text-amber-700"
-              : "bg-slate-100 text-slate-700"
+              ? "bg-amber-500 text-white"
+              : status === "In Progress"
+              ? "bg-blue-500 text-white"
+              : "bg-slate-400 text-white"
           )}
         >
           {status}
@@ -45,7 +51,9 @@ const columns = [
   }),
   columnHelper.accessor("owner", {
     header: "Owner",
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span className="text-[#1D3557]">{info.getValue()}</span>
+    ),
   }),
 ];
 
@@ -64,8 +72,8 @@ export function TrackingTable() {
   });
 
   return (
-    <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
-      <CustomTable table={table} />
-    </div>
+    <Card className="p-0 overflow-hidden">
+      <CustomTable table={table} embedded />
+    </Card>
   );
 }
