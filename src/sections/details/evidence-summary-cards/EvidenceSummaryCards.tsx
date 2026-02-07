@@ -29,22 +29,22 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function EvidenceSummaryCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 min-w-0">
       {evidenceSummaryData.map((item) => (
         <Card
           key={item.label}
-          className="relative overflow-hidden hover:shadow-md transition-shadow"
+          className="relative overflow-hidden hover:shadow-md transition-shadow min-w-0 p-4 sm:p-5"
         >
-          <div className="flex justify-between items-start gap-4">
-            <div>
-              <p className="align-middle capitalize text-[24px] leading-[16px] font-bold text-[#1D3557]">
+          <div className="flex justify-between items-start gap-3 sm:gap-4 min-w-0">
+            <div className="min-w-0 flex-1">
+              <p className="align-middle capitalize text-[20px] sm:text-2xl leading-tight font-bold text-[#1D3557]">
                 {item.value}
               </p>
-              <p className="mt-1 align-middle capitalize text-[14px] leading-[16px] font-normal text-[#8597A8]">
+              <p className="mt-0.5 sm:mt-1 align-middle capitalize text-xs sm:text-sm leading-tight font-normal text-[#8597A8]">
                 {item.label}
               </p>
             </div>
-            <div className="flex-shrink-0">{iconMap[item.icon] ?? iconMap.total}</div>
+            <div className="flex-shrink-0 w-5 h-5 sm:w-5 sm:h-5">{iconMap[item.icon] ?? iconMap.total}</div>
           </div>
         </Card>
       ))}

@@ -35,7 +35,7 @@ export default function SummaryCards() {
               <p className="text-3xl font-bold text-[#1A202C]">{item.value}</p>
               <p className="text-sm text-[#6B7280] mt-1">{item.label}</p>
             </div>
-            <div className="text-[#94A3B8] flex-shrink-0">{iconMap[item.icon] ?? iconMap.active}</div>
+            <div className="text-[#DB1F26] flex-shrink-0">{iconMap[item.icon] ?? iconMap.active}</div>
           </div>
         </Card>
       ))}

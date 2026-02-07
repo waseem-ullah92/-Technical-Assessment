@@ -15,7 +15,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       />
       <div className="flex-1 flex flex-col">
         <Topbar />
-        <main className="p-6 overflow-auto">{children}</main>
+        <main className="p-4 sm:p-6 overflow-auto min-w-0">
+          <div className="min-w-0 w-full">{children}</div>
+        </main>
       </div>
     </div>
   )

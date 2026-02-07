@@ -12,12 +12,19 @@ export default function CustomTable<T>({ table, hidePagination, className, embed
   return (
     <div
       className={cn(
-        "bg-white overflow-hidden",
+        "bg-white overflow-hidden min-w-0 w-full",
         embedded ? "rounded-none border-none" : "rounded-xl border border-[#E0E8ED]",
         className
       )}
     >
-      <div className="overflow-x-auto">
+      <style dangerouslySetInnerHTML={{ __html: `
+        .custom-table-scroll::-webkit-scrollbar { width: 7px; height: 7px; }
+        .custom-table-scroll::-webkit-scrollbar-track { background: #1D3557; border-radius: 12px; }
+        .custom-table-scroll::-webkit-scrollbar-thumb { background: #1D3557; border-radius: 12px; }
+        .custom-table-scroll::-webkit-scrollbar-thumb:hover { background: #1D3557; }
+        .custom-table-scroll { scrollbar-width: thin; scrollbar-color: #1D3557 #1D3557; }
+      ` }} />
+      <div className="overflow-x-auto custom-table-scroll min-w-0 w-full">
         <table className="w-full text-sm min-w-[800px]">
         <thead className="bg-[#F5F8FA] border-b border-[#E0E8ED]">
           {table.getHeaderGroups().map((hg: any) => (

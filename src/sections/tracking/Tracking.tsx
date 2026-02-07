@@ -16,8 +16,8 @@ export default function Tracking() {
 
       <TrackingSummary />
 
-      <div className="grid grid-cols-12 gap-6">
-        <div className="col-span-12 sm:col-span-12 lg:col-span-8">
+        <div className="grid grid-cols-12 gap-6 min-w-0">
+        <div className="col-span-12 sm:col-span-12 lg:col-span-8 min-w-0">
           <TrackingTable />
         </div>
         <aside className="col-span-12 sm:col-span-12 lg:col-span-4">

@@ -94,7 +94,7 @@ export default function EvidenceTable() {
   });
 
   return (
-    <Card className="p-0 overflow-hidden">
+    <Card className="p-0 overflow-hidden min-w-0 w-full">
       <CustomTable table={table} embedded hidePagination />
     </Card>
   );
