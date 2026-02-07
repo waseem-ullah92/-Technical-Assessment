@@ -87,16 +87,31 @@ export default function ProjectTimeline() {
       <div className="relative mt-5 min-h-[56px]">
         {events.map((event, index) => {
           const left = getDotLeft(index);
+          const isFirst = index === 0;
+          const isLast = index === events.length - 1;
+
           return (
             <div
               key={event.id}
-              className="absolute flex flex-col items-center text-center -translate-x-1/2"
-              style={{ left: `${left}%`, top: 0 }}
+              className={`absolute flex flex-col text-center top-0 ${
+                isFirst
+                  ? "left-0 items-start -translate-x-0"
+                  : isLast
+                  ? "right-0 left-auto items-end translate-x-0"
+                  : "items-center -translate-x-1/2"
+              }`}
+              style={
+                isFirst
+                  ? { left: 0 }
+                  : isLast
+                  ? { right: 0, left: "auto" }
+                  : { left: `${left}%` }
+              }
             >
-              <span className="text-sm text-[#6B7280] font-normal whitespace-nowrap">
+              <span className="whitespace-nowrap align-middle capitalize text-[14px] leading-[16px] font-normal text-[#8597A8]">
                 {event.date}
               </span>
-              <span className="text-sm font-medium text-[#1A202C] mt-1.5 leading-tight">
+              <span className="mt-1.5 align-middle capitalize text-[14px] leading-[16px] font-medium text-[#1D3557]">
                 {event.label}
               </span>
             </div>

@@ -5,12 +5,12 @@ import {
   getCoreRowModel,
   getSortedRowModel,
   getPaginationRowModel,
-  flexRender,
   createColumnHelper,
   type SortingState,
 } from "@tanstack/react-table";
 import { useState } from "react";
 import { CustomTable } from "@/shared/ui/table";
+import { Card } from "@/shared/ui/card";
 import { evidenceTableData } from "@/mock/details.mock";
 import { cn } from "@/shared/lib/cn";
 
@@ -21,27 +21,41 @@ const columnHelper = createColumnHelper<EvidenceRow>();
 const columns = [
   columnHelper.accessor("documentNumber", {
     header: "Document Number",
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span className="text-[#1D3557]">{info.getValue()}</span>
+    ),
   }),
   columnHelper.accessor("documentName", {
     header: "Document Name",
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span className="text-[#1D3557] hover:text-[#4CAF50] hover:underline cursor-pointer transition-colors">
+        {info.getValue()}
+      </span>
+    ),
   }),
   columnHelper.accessor("documentLead", {
     header: "Document Lead",
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span className="text-[#1D3557]">{info.getValue()}</span>
+    ),
   }),
   columnHelper.accessor("documentPreparer", {
     header: "Document Preparer",
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span className="text-[#1D3557]">{info.getValue()}</span>
+    ),
   }),
   columnHelper.accessor("date", {
     header: "Date",
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span className="text-[#1D3557]">{info.getValue()}</span>
+    ),
   }),
   columnHelper.accessor("dueDate", {
     header: "Due Date",
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span className="text-[#1D3557]">{info.getValue()}</span>
+    ),
   }),
   columnHelper.accessor("status", {
     header: "Status",
@@ -50,10 +64,12 @@ const columns = [
       return (
         <span
           className={cn(
-            "inline-flex px-2.5 py-1 text-xs font-medium rounded-full",
+            "inline-flex px-3 py-1.5 text-xs font-medium rounded-full justify-center",
             status === "Approved"
-              ? "bg-green-100 text-green-700"
-              : "bg-amber-100 text-amber-700"
+              ? "bg-green-500 text-white"
+              : status === "Pending Review"
+              ? "bg-amber-500 text-white"
+              : "bg-slate-400 text-white"
           )}
         >
           {status}
@@ -77,5 +93,9 @@ export default function EvidenceTable() {
     initialState: { pagination: { pageSize: 10 } },
   });
 
-  return <CustomTable table={table} />;
+  return (
+    <Card className="p-0 overflow-hidden">
+      <CustomTable table={table} embedded hidePagination />
+    </Card>
+  );
 }

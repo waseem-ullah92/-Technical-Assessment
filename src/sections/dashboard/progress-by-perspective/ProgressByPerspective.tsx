@@ -13,7 +13,8 @@ export default function ProgressByPerspective() {
   return (
     <Card>
       <h3 className="font-semibold text-slate-900 mb-4">Progress by Perspective</h3>
-      <ResponsiveContainer width="100%" height={240}>
+      <div className="w-full min-h-[240px]" style={{ height: 240 }}>
+        <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={data}
@@ -32,6 +33,7 @@ export default function ProgressByPerspective() {
           <Legend />
         </PieChart>
       </ResponsiveContainer>
+      </div>
     </Card>
   );
 }

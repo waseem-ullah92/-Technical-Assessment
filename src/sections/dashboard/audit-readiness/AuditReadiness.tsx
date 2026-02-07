@@ -15,7 +15,9 @@ export default function AuditReadiness() {
 
   return (
     <Card>
-      <h3 className="font-semibold text-[#1A202C] mb-6">Audit Readiness</h3>
+      <h3 className="font-semibold text-[#1A202C] mb-6">
+        Digital Transformation Program - Audit Readiness
+      </h3>
 
       {/* Semi-circular progress gauge */}
       <div className="flex flex-col items-center">

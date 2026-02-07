@@ -81,6 +81,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
             <Link
               key={item.path + item.label}
               href={item.path}
+              prefetch={false}
               className={cn(
                 "flex items-center gap-[10px] h-10 rounded-[8px] text-white text-[14px] leading-4 font-medium capitalize",
                 collapsed ? "justify-center px-0 w-10" : "px-[10px] w-[208px]",
