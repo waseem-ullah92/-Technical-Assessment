@@ -16,7 +16,6 @@ export default function ProjectTimeline() {
 
   return (
     <Card className="relative lg:col-span-2">
-      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-[#1A202C]">
           Project Timeline
@@ -50,7 +49,6 @@ export default function ProjectTimeline() {
         </div>
       </div>
 
-      {/* Timeline bar – green then light grey, sharp transition */}
       {events.length === 0 ? (
         <div className="py-8 text-center text-sm text-[#8597A8]">
           No timeline data for {selectedYear}
@@ -64,7 +62,6 @@ export default function ProjectTimeline() {
               style={{ width: `${progressPercent}%` }}
             />
 
-            {/* Dots on bar – white+green for completed, solid red for upcoming */}
             {events.map((event, index) => {
               const left = getDotLeft(index);
               return (
@@ -85,7 +82,6 @@ export default function ProjectTimeline() {
             })}
           </div>
 
-          {/* Labels below – date (light grey) + phase (dark) */}
           <div className="relative mt-5 min-h-[56px]">
             {events.map((event, index) => {
               const left = getDotLeft(index);

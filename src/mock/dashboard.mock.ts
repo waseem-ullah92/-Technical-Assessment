@@ -12,7 +12,6 @@ export const recentActivities = [
 ];
 
 export const projectTimelineData = [
-  // 2026 timeline – exact content from design
   {
     id: 1,
     year: 2026,
@@ -55,8 +54,6 @@ export const projectTimelineData = [
     dateLabel: "August 21",
     status: "upcoming" as const,
   },
-
-  // 2025 (for year filter demo)
   {
     id: 7,
     year: 2025,
@@ -78,8 +75,6 @@ export const projectTimelineData = [
     dateLabel: "Jul–Aug",
     status: "current" as const,
   },
-
-  // 2027 (for year filter demo)
   {
     id: 10,
     year: 2027,

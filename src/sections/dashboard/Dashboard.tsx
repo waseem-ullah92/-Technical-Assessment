@@ -11,16 +11,12 @@ export default function Dashboard() {
         Alpha Transformation Strategic Planning
       </h1>
 
-      {/* 1. Project timeline section */}
       <ProjectTimeline />
 
-      {/* 2. Summary statistics cards */}
       <SummaryCards />
 
-      {/* 3. Progress status by perspectives */}
       <ProgressByPerspective />
 
-      {/* 4. Recent activities and audit readiness widgets */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <RecentActivities />
         <AuditReadiness />

@@ -20,7 +20,6 @@ export default function DetailsHeader({
 }: DetailsHeaderProps) {
   return (
     <div className="space-y-4">
-      {/* Top navigation bar */}
       <Link
         href={backHref}
         className="inline-flex items-center gap-2 text-[#1D3557] font-medium hover:opacity-80 transition-opacity"
@@ -30,7 +29,6 @@ export default function DetailsHeader({
         {title}
       </Link>
 
-      {/* Information card */}
       <Card className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 p-6">
         <div className="space-y-3 flex-1 min-w-0">
           <span

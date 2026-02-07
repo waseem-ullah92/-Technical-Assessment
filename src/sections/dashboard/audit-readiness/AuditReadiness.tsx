@@ -7,7 +7,6 @@ const overdueStds = 12;
 const missingEvidence = 5;
 
 export default function AuditReadiness() {
-  // Semi-circle arc: 180° total, 80% = 144° filled
   const radius = 80;
   const strokeWidth = 12;
   const circumference = Math.PI * radius;
@@ -19,14 +18,12 @@ export default function AuditReadiness() {
         Digital Transformation Program - Audit Readiness
       </h3>
 
-      {/* Semi-circular progress gauge */}
       <div className="flex flex-col items-center">
         <div className="relative w-48 h-24">
           <svg
             viewBox="0 0 200 100"
             className="w-full h-full"
           >
-            {/* Background arc (light grey) */}
             <path
               d="M 20 100 A 80 80 0 0 1 180 100"
               fill="none"
@@ -34,7 +31,6 @@ export default function AuditReadiness() {
               strokeWidth={strokeWidth}
               strokeLinecap="round"
             />
-            {/* Filled arc (green) */}
             <path
               d="M 20 100 A 80 80 0 0 1 180 100"
               fill="none"
@@ -56,10 +52,8 @@ export default function AuditReadiness() {
         </div>
       </div>
 
-      {/* Separator */}
       <div className="my-6 border-t border-[#E0E8ED]" />
 
-      {/* Bottom metrics */}
       <div className="flex justify-around gap-4">
         <div className="flex flex-col items-center">
           <span className="text-xl font-bold text-[#1A202C]">{overdueStds}</span>
