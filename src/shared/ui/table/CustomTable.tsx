@@ -17,7 +17,8 @@ export default function CustomTable<T>({ table, hidePagination, className, embed
         className
       )}
     >
-      <table className="w-full text-sm">
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm min-w-[800px]">
         <thead className="bg-[#F5F8FA] border-b border-[#E0E8ED]">
           {table.getHeaderGroups().map((hg: any) => (
             <tr key={hg.id}>
@@ -66,6 +67,7 @@ export default function CustomTable<T>({ table, hidePagination, className, embed
           ))}
         </tbody>
       </table>
+      </div>
 
       {showPagination && (
         <div className="flex justify-between items-center p-3 border-t border-[#E0E8ED] bg-[#F5F8FA]">

@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/shared/lib/cn";
+
+import logoImage from "@/shared/images/Tahwul_01@3x 1.png";
 
 type SidebarProps = {
   collapsed?: boolean;
@@ -70,14 +73,25 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
     >
       <div className={cn("p-5 border-b border-[#1D3557]", collapsed && "px-3 py-4")}>
         {!collapsed && (
-          <>
-            <h2 className="text-xl font-bold">TAHWUL</h2>
-            <p className="text-xs text-white/70 mt-0.5">Leading Digital Transformation</p>
-          </>
+          <Image
+            src={logoImage}
+            alt="TAHWUL"
+            width={100}
+            height={40}
+            className="object-contain object-left"
+            priority
+          />
         )}
         {collapsed && (
-          <div className="w-8 h-8 flex items-center justify-center">
-            <span className="text-lg font-bold">T</span>
+          <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
+            <Image
+              src={logoImage}
+              alt="TAHWUL"
+              width={100}
+              height={40}
+              className="h-8 w-auto max-w-full object-contain"
+              priority
+            />
           </div>
         )}
       </div>
