@@ -12,8 +12,70 @@ export const recentActivities = [
 ];
 
 export const projectTimelineData = [
-  { phase: "Discovery", start: "Jan", end: "Feb", progress: 100 },
-  { phase: "Planning", start: "Feb", end: "Mar", progress: 80 },
-  { phase: "Implementation", start: "Mar", end: "Jun", progress: 45 },
-  { phase: "Review", start: "Jun", end: "Jul", progress: 0 },
+  // 2026 timeline – exact content from design
+  {
+    id: 1,
+    year: 2026,
+    phase: "Kickoff Workshop",
+    dateLabel: "Mar 17",
+    status: "completed" as const,
+  },
+  {
+    id: 2,
+    year: 2026,
+    phase: "Data Collection",
+    dateLabel: "March 18",
+    status: "completed" as const,
+  },
+  {
+    id: 3,
+    year: 2026,
+    phase: "Initial Phase",
+    dateLabel: "May 8",
+    status: "current" as const,
+  },
+  {
+    id: 4,
+    year: 2026,
+    phase: "Verification",
+    dateLabel: "May 9-July 12",
+    status: "upcoming" as const,
+  },
+  {
+    id: 5,
+    year: 2026,
+    phase: "Completion Reviews",
+    dateLabel: "July 13",
+    status: "upcoming" as const,
+  },
+  {
+    id: 6,
+    year: 2026,
+    phase: "Cycle Conclusion",
+    dateLabel: "August 21",
+    status: "upcoming" as const,
+  },
+
+  // 2025 (for year filter demo)
+  {
+    id: 7,
+    year: 2025,
+    phase: "Planning",
+    dateLabel: "Jan–Feb",
+    status: "completed" as const,
+  },
+  {
+    id: 8,
+    year: 2025,
+    phase: "Execution",
+    dateLabel: "Mar–Jun",
+    status: "completed" as const,
+  },
+  {
+    id: 9,
+    year: 2025,
+    phase: "Close-out",
+    dateLabel: "Jul–Aug",
+    status: "current" as const,
+  },
 ];

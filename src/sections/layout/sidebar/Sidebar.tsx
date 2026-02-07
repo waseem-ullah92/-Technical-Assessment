@@ -4,6 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/shared/lib/cn";
 
+type SidebarProps = {
+  collapsed?: boolean;
+  onToggle?: () => void;
+};
+
 const navItems = [
   { label: "Dashboard", path: "/dashboard", icon: "dashboard" },
   { label: "Details", path: "/details/1", icon: "perspectives" },
@@ -31,17 +36,43 @@ const iconMap: Record<string, React.ReactNode> = {
   ),
 };
 
-export default function Sidebar() {
+const ChevronLeftIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+  </svg>
+);
+
+const ChevronRightIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  </svg>
+);
+
+export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 flex-shrink-0 bg-[#1D3557] text-white flex flex-col min-w-0">
-      <div className="p-5 border-b border-[#1D3557]">
-        <h2 className="text-xl font-bold">TAHWUL</h2>
-        <p className="text-xs text-white/70 mt-0.5">Leading Digital Transformation</p>
+    <aside
+      className={cn(
+        "relative flex-shrink-0 bg-[#1D3557] text-white flex flex-col min-w-0 transition-[width] duration-200 ease-in-out",
+        collapsed ? "w-16" : "w-64"
+      )}
+    >
+      <div className={cn("p-5 border-b border-[#1D3557]", collapsed && "px-3 py-4")}>
+        {!collapsed && (
+          <>
+            <h2 className="text-xl font-bold">TAHWUL</h2>
+            <p className="text-xs text-white/70 mt-0.5">Leading Digital Transformation</p>
+          </>
+        )}
+        {collapsed && (
+          <div className="w-8 h-8 flex items-center justify-center">
+            <span className="text-lg font-bold">T</span>
+          </div>
+        )}
       </div>
 
-      <nav className="flex-1 p-4 space-y-2">
+      <nav className={cn("flex-1 p-4 space-y-2", collapsed && "px-2")}>
         {navItems.map((item) => {
           const isActive =
             pathname === item.path ||
@@ -51,18 +82,34 @@ export default function Sidebar() {
               key={item.path + item.label}
               href={item.path}
               className={cn(
-                "flex items-center gap-[10px] px-[10px] h-10 w-[208px] rounded-[8px] text-white text-[14px] leading-4 font-medium capitalize",
+                "flex items-center gap-[10px] h-10 rounded-[8px] text-white text-[14px] leading-4 font-medium capitalize",
+                collapsed ? "justify-center px-0 w-10" : "px-[10px] w-[208px]",
                 isActive
                   ? "bg-[#98AEC01A]"
                   : "bg-transparent hover:bg-[#98AEC01A]"
               )}
+              title={collapsed ? item.label : undefined}
             >
               {iconMap[item.icon]}
-              <span className="align-middle">{item.label}</span>
+              {!collapsed && <span className="align-middle">{item.label}</span>}
             </Link>
           );
         })}
       </nav>
+
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+        className="absolute w-8 h-8 rounded-full bg-white flex items-center justify-center p-2 gap-2.5 text-slate-700 hover:bg-slate-50 transition-colors z-10"
+        style={{
+          top: 14,
+          left: collapsed ? 16 : 240,
+          boxShadow: "0px 0px 2px 0px #0000001A",
+        }}
+      >
+        {collapsed ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+      </button>
     </aside>
   );
 }
