@@ -1,10 +1,10 @@
 "use client";
 
-import DetailsHeader from "./DetailsHeader";
-import EvidenceSummaryCards from "./EvidenceSummaryCards";
+import { DetailsHeader } from "./details-header";
+import { EvidenceSummaryCards } from "./evidence-summary-cards";
 import { Tabs } from "@/shared/ui/tabs";
-import OverviewContent from "./OverviewContent";
-import EvidenceContent from "./EvidenceContent";
+import { OverviewContent } from "./overview-content";
+import { EvidenceContent } from "./evidence-content";
 
 export default function Details() {
   const tabs = [

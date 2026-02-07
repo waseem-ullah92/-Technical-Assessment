@@ -2,7 +2,7 @@
 
 import { Card } from "@/shared/ui/card";
 import { overviewContent } from "@/mock/details.mock";
-import LeadersSection from "./LeadersSection";
+import { LeadersSection } from "../leaders-section";
 
 export default function OverviewContent() {
   return (

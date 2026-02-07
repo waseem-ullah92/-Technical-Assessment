@@ -29,7 +29,7 @@ export default function ProgressByPerspective() {
               <Cell key={`cell-${index}`} fill={entry.color} />
             ))}
           </Pie>
-          <Tooltip formatter={(value: number) => `${value}%`} />
+          <Tooltip formatter={(value: number | undefined) => `${value ?? 0}%`} />
           <Legend />
         </PieChart>
       </ResponsiveContainer>

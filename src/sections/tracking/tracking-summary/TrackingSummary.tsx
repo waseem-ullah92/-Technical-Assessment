@@ -11,7 +11,7 @@ const statusCounts = trackingRows.reduce(
   {} as Record<string, number>
 );
 
-export function TrackingSummary() {
+export default function TrackingSummary() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <Card className="relative overflow-hidden hover:shadow-md transition-shadow">

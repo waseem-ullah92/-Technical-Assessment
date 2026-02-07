@@ -11,7 +11,7 @@ type SidebarProps = {
 
 const navItems = [
   { label: "Dashboard", path: "/dashboard", icon: "dashboard" },
-  { label: "Details", path: "/details/1", icon: "reports" },
+  { label: "Details", path: "/details", icon: "reports" },
   { label: "Tracking", path: "/tracking", icon: "timeline" },
 ];
 
@@ -84,9 +84,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
 
       <nav className={cn("flex-1 p-4 space-y-2", collapsed && "px-2")}>
         {navItems.map((item) => {
-          const isActive =
-            pathname === item.path ||
-            (item.path === "/details/1" && pathname.startsWith("/details"));
+          const isActive = pathname === item.path;
           return (
             <Link
               key={item.path + item.label}

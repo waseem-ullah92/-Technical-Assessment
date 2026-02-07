@@ -57,7 +57,7 @@ const columns = [
   }),
 ];
 
-export function TrackingTable() {
+export default function TrackingTable() {
   const [sorting, setSorting] = useState<SortingState>([]);
 
   const table = useReactTable({

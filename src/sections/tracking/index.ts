@@ -1,3 +1,1 @@
-export { TrackingTable } from "./TrackingTable";
-export { TrackingSummary } from "./TrackingSummary";
-export { StatusOverviewSidePanel } from "./StatusOverviewSidePanel";
+export { default as Tracking } from "./Tracking";

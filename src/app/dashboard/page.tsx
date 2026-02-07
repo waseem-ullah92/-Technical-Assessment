@@ -1,4 +1,4 @@
-import Dashboard from "@/sections/dashboard/Dashboard";
+import { Dashboard } from "@/sections/dashboard";
 
 export default function DashboardPage() {
   return <Dashboard />;

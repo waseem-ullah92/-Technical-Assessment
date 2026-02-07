@@ -13,7 +13,7 @@ const statusCounts = trackingRows.reduce(
 
 const statusLabels = ["Approved", "Pending Review", "In Progress"] as const;
 
-export function StatusOverviewSidePanel() {
+export default function StatusOverviewSidePanel() {
   return (
     <Card>
       <h3 className="font-semibold text-[#1D3557] mb-4">Status Overview</h3>

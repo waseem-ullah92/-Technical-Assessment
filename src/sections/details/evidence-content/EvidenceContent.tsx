@@ -1,8 +1,8 @@
 "use client";
 
-import EvidenceTable from "./EvidenceTable";
-import CommentsSection from "./CommentsSection";
-import RecentActivitiesSection from "./RecentActivitiesSection";
+import { EvidenceTable } from "../evidence-table";
+import { CommentsSection } from "../comments-section";
+import { RecentActivitiesSection } from "../recent-activities-section";
 
 export default function EvidenceContent() {
   return (
