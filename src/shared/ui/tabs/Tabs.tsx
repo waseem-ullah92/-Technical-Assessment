@@ -29,7 +29,7 @@ export default function Tabs({ tabs, defaultTab, className }: TabsProps) {
           );
         })}
       </div>
-      <div className="mt-4 min-w-0 w-full">{activeContent}</div>
+      <div className="mt-4 min-w-0 w-full max-w-full overflow-hidden">{activeContent}</div>
     </div>
   );
 }
