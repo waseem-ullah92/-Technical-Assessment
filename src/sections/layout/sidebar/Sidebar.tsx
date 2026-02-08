@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { cn } from "@/shared/lib/cn";
 
 import logoImage from "@/shared/images/Tahwul_01@3x 1.png";
@@ -63,6 +64,23 @@ const ChevronRightIcon = () => (
 
 export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
   const pathname = usePathname();
+
+  // Auto-collapse on mobile screens
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768 && !collapsed && onToggle) {
+        // Auto-collapse on mobile (< md breakpoint)
+        onToggle();
+      }
+    };
+
+    // Run on mount
+    handleResize();
+
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [collapsed, onToggle]);
 
   return (
     <aside

@@ -94,10 +94,10 @@ export default function EvidenceTable() {
   });
 
   return (
-    <Card className="p-0 min-w-0 w-full max-w-full overflow-x-auto">
-      <div className="min-w-max">
+    <div className="w-full overflow-x-auto">
+      <Card className="p-0 min-w-0">
         <CustomTable table={table} embedded hidePagination />
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 }

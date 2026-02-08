@@ -1,17 +1,12 @@
-@import "tailwindcss";
-
+/* Root variables */
 :root {
   --background: #f5f8fa;
   --foreground: #171717;
+  --font-sans: 'Arial', 'Helvetica', sans-serif;
+  --font-mono: 'Courier New', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +14,48 @@
   }
 }
 
+/* Global body styles */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Horizontal Scrollbar for specific element */
+.custom-table-scroll {
+  overflow-x: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #1D3557 #f1f1f1; /* Firefox */
+}
+
+/* Webkit scrollbars */
+.custom-table-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.custom-table-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.custom-table-scroll::-webkit-scrollbar-thumb {
+  background: #1D3557;
+  border-radius: 10px;
+}
+
+.custom-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #16304d;
+}
+
+/* Global scrollbar for all elements (optional) */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #1D3557;
+  border-radius: 10px;
 }
