@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* Root variables */
 :root {
   --background: #f5f8fa;

@@ -4,15 +4,13 @@ export default function Topbar() {
   return (
     <header
       className="
-    h-full sm:h-[60px]
-    flex-shrink-0
-    bg-white border-b border-[#E0E8ED]
-    flex flex-col sm:flex-row
-    items-center px-6 justify-between
-    gap-3 sm:gap-0
-  "
+        h-[60px] flex-shrink-0
+        bg-white border-b border-[#E0E8ED]
+        flex items-center px-6 justify-between
+        gap-3
+      "
     >
-      <div className="w-[318px] h-[34px]">
+      <div className="w-full sm:w-[318px] h-[34px]">
         <div className="relative w-full h-full">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
             <svg
@@ -70,7 +68,7 @@ export default function Topbar() {
               alt="Mohamed"
               className="w-8 h-8 rounded-full object-cover flex-shrink-0"
             />
-            <span className="text-sm font-medium text-[#1D3557]">Mohamed</span>
+            <span className="hidden sm:inline text-sm font-medium text-[#1D3557]">Mohamed</span>
             <svg
               className="w-4 h-4 text-[#8597A8] flex-shrink-0"
               fill="none"
